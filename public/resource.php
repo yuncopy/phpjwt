@@ -51,6 +51,7 @@ if ($request->isGet()) {
                  * the token was not able to be decoded.
                  * this is likely because the signature was not able to be verified (tampered token)
                  */
+                echo $e->getMessage();
                 header('HTTP/1.0 401 Unauthorized');
             }
         } else {

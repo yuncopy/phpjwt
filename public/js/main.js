@@ -12,7 +12,7 @@ $(function(){
         this.expContainer = $("#exp");
         this.tokenContainer = $("#token");
         this.decodedTokenContainer = $("#decodedToken");
-    }
+    };
 
     /**
      * Export the current JWT values to the specified containers.
@@ -40,7 +40,7 @@ $(function(){
         store.iatContainer.html(iatString);
         store.nbfContainer.html(nbfString);
         store.expContainer.html(expString);
-    }
+    };
 
     /**
      * Decodes the JWT
@@ -50,7 +50,7 @@ $(function(){
     store.decodeToken = function(jwt){
         var a = jwt.split(".");
         return  b64utos(a[1]);
-    }
+    };
 
     /**
      * Sets the JWT to the store object
@@ -59,7 +59,7 @@ $(function(){
     store.setJwt = function(data){
         this.jwt = data;
         this.claim = this.decodeToken(data);
-    }
+    };
 
     /**
      *
@@ -68,7 +68,7 @@ $(function(){
      */
     store.dateObjToString = function(date) {
         return date.toDateString() + ' ' + date.toLocaleTimeString();
-    }
+    };
 
     setInterval(function() {
         var currentTime = new Date();
@@ -77,7 +77,7 @@ $(function(){
 
 	$("#frmLogin").submit(function(e){
         e.preventDefault();
-        $.post('auth/token', $("#frmLogin").serialize(), function(data){
+        $.post('login.php', $("#frmLogin").serialize(), function(data){
             store.setJwt(data.jwt);
             store.exportValues();
         }).fail(function(){
@@ -88,7 +88,7 @@ $(function(){
     $("#btnGetResource").click(function(e){
         e.preventDefault();
         $.ajax({
-            url: 'resource/image',
+            url: 'resource.php',
             beforeSend: function(request){
                 request.setRequestHeader('Authorization', 'Bearer ' + store.jwt);
             },
