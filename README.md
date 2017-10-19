@@ -29,7 +29,8 @@ INSERT INTO `users` VALUES ('1', 'root', '$2y$10$AUCMRch7kz47u4zbOSGkyetJjTKJOxx
 
 `echo password_hash('qwer@123',PASSWORD_DEFAULT);`
 
-- 原始代码案例：https://github.com/tecnom1k3/sp-simple-jwt
+- 官方网站：https://jwt.io/introduction/
+- 代码案例：https://github.com/tecnom1k3/sp-simple-jwt
 - 执行流程：http://blog.csdn.net/liuwenbiao1203/article/details/52351772
 - 参数说明：http://www.cnblogs.com/zjutzz/p/5790180.html
 
